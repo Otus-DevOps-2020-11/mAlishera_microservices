@@ -1,0 +1,5 @@
+ ~  docker images                                                                                                                                                 ✔  19:40:05
+REPOSITORY                           TAG                                                     IMAGE ID       CREATED         SIZE
+malishera/ubuntu-tmp-file            latest                                                  a28857ab1a37   7 seconds ago   63.3MB
+ubuntu                               18.04                                                   c090eaba6b94   5 weeks ago     63.3MB
+postgres                             10                                                      cd5fd1e17cdc   6 weeks ago     200MB
