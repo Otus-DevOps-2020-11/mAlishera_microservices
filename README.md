@@ -1,6 +1,12 @@
 # mAlishera_microservices
 mAlishera microservices repository
 
+# Домашняя работа к лекции №18 (docker-4)
+
+- Добавлен запуск сервисов через docker-compose
+- Добавлен .env файл
+- Базовое имя проекта задается при запуске через опцию "-p"
+
 # Домашняя работа к лекции №17 (docker-3)
 
 - Собраны все сервисы
@@ -8,9 +14,6 @@ docker pull mongo:latest
 docker build -t malishera/post:2.0 ./post-py
 docker build -t malishera/comment:2.0 ./comment
 docker build -t malishera/ui:3.0 ./ui
-
-You are using pip version 9.0.1, however version 21.0.1 is available.
-You should consider upgrading via the 'pip install --upgrade pip' command.
 
 - Создана bridge-сеть и все собранные сервисы запущены в этой сети
 docker network create reddit
@@ -20,7 +23,7 @@ docker run -d --network=reddit --network-alias=comment malishera/comment:1.0
 docker run -d --network=reddit -p 9292:9292 malishera/ui:1.0
 
 - Проверена работа приложения - открыли приложение запущенное по ссылке выше и написали тестовый пост
-http://84.201.130.234:9292/
+http://84.252.128.141:9292/
 
 - Оптимизирован и пересобран ui образ
 docker build -t malishera/ui:2.0 ./ui
@@ -56,7 +59,7 @@ yc compute instance create \
 - локально установлен docker-machine, с помощью него инициализорован докер хост с инстанстансом в yacloud
 docker-machine create \
   --driver generic \
-  --generic-ip-address=84.201.130.234 \
+  --generic-ip-address=84.252.128.141 \
   --generic-ssh-user yc-user \
   --generic-ssh-key ~/.ssh/id_rsa \
   docker-host
@@ -66,3 +69,4 @@ eval $(docker-machine env docker-host)
 - в Dockerfile описан контейнер
 - на основе описанного контейнера собран образ
 - образ запушен на docker hub
+docker-machine rm docker-host
